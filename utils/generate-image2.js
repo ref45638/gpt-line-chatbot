@@ -28,17 +28,23 @@ const generateImage2 = async ({
 }) => {
   if (config.APP_ENV !== 'production') return new Image({ url: MOCK_TEXT_OK });
   
-  let prediction = await replicate.predictions.create({
-    version: 'db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf',
-    input: {
-      prompt,
-      num_inference_steps: 500,
-      guidance_scale: 20
-    },
-  });
-  prediction = await replicate.wait(prediction, {});
+  let url = '';
+  try {
+    let prediction = await replicate.predictions.create({
+      version: 'db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf',
+      input: {
+        prompt,
+        num_inference_steps: 500,
+        guidance_scale: 20
+      },
+    });
+    prediction = await replicate.wait(prediction, {});
+    [url] = prediction.output
+  } catch (e) {
+    console.error(e);
+  }
 
-  return new Image({url: prediction.output[0]});
+  return new Image({url});
 };
 
 export default generateImage2;
