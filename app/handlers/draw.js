@@ -1,7 +1,7 @@
 import config from '../../config/index.js';
 import { MOCK_TEXT_OK } from '../../constants/mock.js';
 import { ROLE_AI, ROLE_HUMAN } from '../../services/openai.js';
-import { generateImage } from '../../utils/index.js';
+import { generateImage, generateImage2 } from '../../utils/index.js';
 import { COMMAND_BOT_DRAW } from '../commands/index.js';
 import Context from '../context.js';
 import { updateHistory } from '../history/index.js';
