@@ -39,7 +39,8 @@ const generateImage2 = async ({
       },
     });
     prediction = await replicate.wait(prediction, {});
-    [url] = prediction.output
+    url = prediction.output[0]
+    console.log('prompt:' + prompt + ' draw:' + url)
   } catch (e) {
     console.error(e);
   }
