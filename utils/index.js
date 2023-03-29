@@ -8,6 +8,7 @@ import fetchUser from './fetch-user.js';
 import fetchVersion from './fetch-version.js';
 import generateCompletion from './generate-completion.js';
 import generateImage from './generate-image.js';
+import generateImage2 from './generate-image2.js';
 import generateTranscription from './generate-transcription.js';
 import getCommand from './get-command.js';
 import getVersion from './get-version.js';
@@ -25,6 +26,7 @@ export {
   fetchVersion,
   generateCompletion,
   generateImage,
+  generateImage2,
   generateTranscription,
   getCommand,
   getVersion,
